@@ -2,11 +2,9 @@ package ua.com.hav.workbase.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import ua.com.hav.workbase.annotation.MethodDescription;
 import ua.com.hav.workbase.model.Client;
-import ua.com.hav.workbase.repo.ClientRepo;
 
 import java.util.List;
 

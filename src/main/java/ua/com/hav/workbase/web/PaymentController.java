@@ -10,10 +10,6 @@ import ua.com.hav.workbase.exception.ClientNotFoundException;
 import ua.com.hav.workbase.model.Account;
 import ua.com.hav.workbase.model.Client;
 import ua.com.hav.workbase.model.Payment;
-import ua.com.hav.workbase.repo.AccountRepo;
-import ua.com.hav.workbase.repo.ClientRepo;
-import ua.com.hav.workbase.repo.PaymentRepo;
-import ua.com.hav.workbase.service.ClientService;
 //import ua.com.hav.workbase.view.ClientView;
 
 import javax.validation.Valid;

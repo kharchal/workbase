@@ -1,7 +1,6 @@
 package ua.com.hav.workbase;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,14 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import ua.com.hav.workbase.annotation.MethodDescription;
 import ua.com.hav.workbase.aspect.AccessRightsHolder;
 import ua.com.hav.workbase.model.AccessRight;
-import ua.com.hav.workbase.model.Role;
-import ua.com.hav.workbase.repo.AccessRightRepo;
-import ua.com.hav.workbase.repo.RoleRepo;
 import ua.com.hav.workbase.service.RoleService;
 
 import javax.servlet.ServletContextEvent;
 import java.lang.reflect.Method;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j

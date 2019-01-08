@@ -9,13 +9,10 @@ import ua.com.hav.workbase.annotation.MethodDescription;
 import ua.com.hav.workbase.aspect.AccessRightsHolder;
 import ua.com.hav.workbase.model.AccessRight;
 import ua.com.hav.workbase.model.Role;
-import ua.com.hav.workbase.repo.AccessRightRepo;
-import ua.com.hav.workbase.repo.RoleRepo;
 import ua.com.hav.workbase.service.RoleService;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class RightController {

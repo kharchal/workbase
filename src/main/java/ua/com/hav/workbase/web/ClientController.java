@@ -11,13 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ua.com.hav.workbase.model.Client;
 import ua.com.hav.workbase.model.Level;
 import ua.com.hav.workbase.model.Person;
-import ua.com.hav.workbase.repo.LevelRepo;
-import ua.com.hav.workbase.repo.PersonRepo;
 import ua.com.hav.workbase.service.ClientService;
 //import ua.com.hav.workbase.view.ClientView;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;

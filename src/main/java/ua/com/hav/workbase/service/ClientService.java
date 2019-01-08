@@ -2,19 +2,12 @@ package ua.com.hav.workbase.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import ua.com.hav.workbase.exception.ClientNotFoundException;
 import ua.com.hav.workbase.model.Client;
 import ua.com.hav.workbase.model.DateConverter;
-import ua.com.hav.workbase.model.Person;
-import ua.com.hav.workbase.repo.ClientRepo;
-import ua.com.hav.workbase.repo.LevelRepo;
-import ua.com.hav.workbase.repo.PersonRepo;
 //import ua.com.hav.workbase.view.ClientView;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 //@Transactional
