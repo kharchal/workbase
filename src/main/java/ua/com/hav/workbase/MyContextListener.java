@@ -1,6 +1,7 @@
 package ua.com.hav.workbase;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,32 +12,38 @@ import ua.com.hav.workbase.model.AccessRight;
 import ua.com.hav.workbase.model.Role;
 import ua.com.hav.workbase.repo.AccessRightRepo;
 import ua.com.hav.workbase.repo.RoleRepo;
+import ua.com.hav.workbase.service.RoleService;
 
 import javax.servlet.ServletContextEvent;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class MyContextListener implements javax.servlet.ServletContextListener {
 
     private ApplicationContext context;
     private AccessRightRepo accessRightRepo;
     private AccessRightsHolder rightsHolder;
-    private RoleRepo roleRepo;
+    private RoleService roleService;
 
     public MyContextListener() {
     }
 
-    public MyContextListener(ApplicationContext context, AccessRightRepo accessRightRepo, AccessRightsHolder rightsHolder, RoleRepo roleRepo) {
+    public MyContextListener(ApplicationContext context, AccessRightRepo accessRightRepo, AccessRightsHolder rightsHolder, RoleService roleService) {
         this.context = context;
         this.accessRightRepo = accessRightRepo;
         this.rightsHolder = rightsHolder;
-        this.roleRepo = roleRepo;
+        this.roleService = roleService;
     }
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println(".... App is starting ....");
+        log.info("App is starting ======================================");
+        log.warn("App is starting ======================================");
+        log.debug("App is starting ======================================");
+        log.error("App is starting ======================================");
         Map<String, Object> allCommandBeans = context.getBeansWithAnnotation(Controller.class);
         System.out.println("allCommandBeans = " + allCommandBeans);
         for (String name : allCommandBeans.keySet()) {
@@ -82,24 +89,7 @@ public class MyContextListener implements javax.servlet.ServletContextListener {
             }
             System.out.println();
         }
-        loadAccessRights();
+        roleService.loadRights(rightsHolder);
     }
 
-    private void loadAccessRights() {
-//        List<AccessRight> all = accessRightRepo.findAll();
-        List<Role> allRoles = roleRepo.findAll();
-        System.out.println();
-        System.out.println("allRoles = " + allRoles);
-        System.out.println();
-
-        for (Role role : allRoles) {
-            String roleName = role.getValue();
-            for (AccessRight right : role.getMappings()) {
-                rightsHolder.put(right.getMapping(), roleName);
-            }
-        }
-        System.out.println();
-        System.out.println("rightsHolder = " + rightsHolder);
-        System.out.println();
-    }
 }

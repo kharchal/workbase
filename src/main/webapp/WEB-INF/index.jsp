@@ -11,7 +11,7 @@
     <hr>
     <strong><span style="color: red;">${msg}</span></strong>
     <br>
-    ${time}
+    <%--${time}--%>
     <c:import url="util/footer.jsp"/>
 </body>
 </html>

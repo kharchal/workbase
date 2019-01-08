@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.com.hav.workbase.annotation.MethodDescription;
+import ua.com.hav.workbase.aspect.AccessRightsHolder;
 import ua.com.hav.workbase.model.AccessRight;
 import ua.com.hav.workbase.model.Role;
 import ua.com.hav.workbase.repo.AccessRightRepo;
@@ -28,6 +29,9 @@ public class RightController {
     @Autowired
     private RoleService service;
 
+    @Autowired
+    private AccessRightsHolder rightsHolder;
+
     @RequestMapping("/rights/")
     public String list(Model model) {
         List<AccessRight> rights = rightRepo.findAll();
@@ -44,11 +48,12 @@ public class RightController {
     public String on(@PathVariable(name = "r_id") Integer roleId, @PathVariable(name = "m_id") Integer mappingId, HttpSession session) {
         AccessRight right = rightRepo.findById(mappingId).orElseThrow(() -> new RuntimeException());
         Role role = roleRepo.findById(roleId).orElseThrow(() -> new RuntimeException());
-        List<AccessRight> mappings = role.getMappings();
-        mappings.add(right);
+//        List<AccessRight> mappings = role.getMappings();
+//        mappings.add(right);
         roleRepo.save(role);
-        String userRole = (String) session.getAttribute("userRole");
-        service.setRole(session, userRole);
+        rightsHolder = service.loadRights(rightsHolder);
+//        String userRole = (String) session.getAttribute("userRole");
+//        service.setRole(session, userRole);
         return "redirect:/rights/";
     }
 
@@ -57,11 +62,12 @@ public class RightController {
     public String off(@PathVariable(name = "r_id") Integer roleId, @PathVariable(name = "m_id") Integer mappingId, HttpSession session) {
         AccessRight right = rightRepo.findById(mappingId).orElseThrow(() -> new RuntimeException());
         Role role = roleRepo.findById(roleId).orElseThrow(() -> new RuntimeException());
-        List<AccessRight> mappings = role.getMappings();
-        mappings.remove(right);
+//        List<AccessRight> mappings = role.getMappings();
+//        mappings.remove(right);
         roleRepo.save(role);
-        String userRole = (String) session.getAttribute("userRole");
-        service.setRole(session, userRole);
+        rightsHolder = service.loadRights(rightsHolder);
+//        String userRole = (String) session.getAttribute("userRole");
+//        service.setRole(session, userRole);
         return "redirect:/rights/";
     }
 
@@ -71,12 +77,13 @@ public class RightController {
         List<AccessRight> rights = rightRepo.findAll();
         List<Role> roles = roleRepo.findAll();
         for (Role role : roles) {
-            role.getMappings().clear();
+//            role.getMappings().clear();
             for (AccessRight right : rights) {
-                role.getMappings().add(right);
+//                role.getMappings().add(right);
             }
             roleRepo.save(role);
         }
+        rightsHolder = service.loadRights(rightsHolder);
         return "redirect:/rights/";
     }
 }

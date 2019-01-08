@@ -19,12 +19,12 @@ public class Role {
 
     private String value;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "roles_mappings",
-            joinColumns = @JoinColumn(name = "role_id"),
-            inverseJoinColumns = @JoinColumn(name = "mapping_id"))
-    private List<AccessRight> mappings = new ArrayList<>();
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(name = "roles_mappings",
+//            joinColumns = @JoinColumn(name = "role_id"),
+//            inverseJoinColumns = @JoinColumn(name = "mapping_id"))
+//    private List<AccessRight> mappings = new ArrayList<>();
 
-    @Transient
-    private List<String> stringMapppings = new ArrayList<>();
+//    @Transient
+//    private List<String> stringMapppings = new ArrayList<>();
 }

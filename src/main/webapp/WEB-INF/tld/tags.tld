@@ -7,6 +7,16 @@
     <jsp-version>1.2</jsp-version>
     <short-name>Some TLD</short-name>
     <tag>
+        <name>date</name>
+        <tag-class>ua.com.hav.workbase.taglib.ConverterTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>convert</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
         <name>button</name>
         <tag-class>ua.com.hav.workbase.taglib.ButtonTag</tag-class>
         <body-content>empty</body-content>

@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="mt" uri="/WEB-INF/tld/tags.tld"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE html>
@@ -34,27 +33,27 @@
         </tr>
         <tr>
             <td>
-                <label for="person">PERSON</label>
+                <label for="name">NAME</label>
             </td>
             <td>
-                <%--<f:input type="hidden" path="personId"/>--%>
-                <f:select id="person" items="${persons}" path="person.id" cssClass="form-control" readonly="true"/>
+                <f:input type="hidden" path="personId"/>
+                <f:input id="name" path="name" cssClass="form-control" readonly="true"/>
             </td>
             <td>
-                <%--<f:errors path="name" cssClass="red"/>--%>
+                <f:errors path="name" cssClass="red"/>
             </td>
         </tr>
-        <%--<tr>--%>
-            <%--<td>--%>
-                <%--<label for="surname">SURNAME</label>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<f:input id="surname" path="surname" cssClass="form-control" readonly="true"/>--%>
-            <%--</td>--%>
-            <%--<td>--%>
-                <%--<f:errors path="surname" cssClass="red"/>--%>
-            <%--</td>--%>
-        <%--</tr>--%>
+        <tr>
+            <td>
+                <label for="surname">SURNAME</label>
+            </td>
+            <td>
+                <f:input id="surname" path="surname" cssClass="form-control" readonly="true"/>
+            </td>
+            <td>
+                <f:errors path="surname" cssClass="red"/>
+            </td>
+        </tr>
         <tr>
             <td>
                 <label for="level">LEVEL</label>
@@ -81,10 +80,7 @@
             <td>
                 <label for="xdate">DATE</label>
             </td>
-            <td>
-                <input id="xdate" name="dateString" value="<mt:date convert="${client.xdate}"/>" class="form-control"/>
-                <%--<f:input path="xdate" id="xdate" cssClass="form-control"/>--%>
-            </td>
+            <td><f:input path="xdate" id="xdate" cssClass="form-control"></f:input></td>
             <td>
                 <f:errors path="xdate"/>
             </td>

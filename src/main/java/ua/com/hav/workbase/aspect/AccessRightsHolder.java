@@ -32,7 +32,15 @@ public class AccessRightsHolder {
 
     @Override
     public String toString() {
-        return rights.toString();
+        StringBuilder sb = new StringBuilder();
+        for (String key : rights.keySet()) {
+            sb.append("'");
+            sb.append(key);
+            sb.append("' => ");
+            sb.append(rights.get(key));
+            sb.append(System.lineSeparator());
+        }
+        return sb.toString();
     }
 
 }

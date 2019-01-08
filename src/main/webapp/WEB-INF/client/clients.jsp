@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@ taglib prefix="mt" uri="/WEB-INF/tld/tags.tld"%>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE html>
@@ -18,6 +18,7 @@
             <th>SURNAME</th>
             <th>LEVEL</th>
             <th>BALANCE</th>
+            <th>DATE</th>
             <th>
                 <c:if test="${!rights.contains('/clients/create/')}">
                     <a href="/clients/create/" class="btn btn-warning btn-sm">Create</a>
@@ -31,6 +32,7 @@
                 <td>${client.person.surname}</td>
                 <td>${client.level.value}</td>
                 <td>${client.balance}</td>
+                <td><mt:date convert="${client.xdate}"/></td>
                 <td>
                     <%--<c:set var="url_" value="/clients/show/" scope="request"/>--%>
                     <%--<c:set var="test_end" value="{id}" scope="request"/>--%>

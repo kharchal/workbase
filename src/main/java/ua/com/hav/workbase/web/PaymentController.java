@@ -14,7 +14,7 @@ import ua.com.hav.workbase.repo.AccountRepo;
 import ua.com.hav.workbase.repo.ClientRepo;
 import ua.com.hav.workbase.repo.PaymentRepo;
 import ua.com.hav.workbase.service.ClientService;
-import ua.com.hav.workbase.view.ClientView;
+//import ua.com.hav.workbase.view.ClientView;
 
 import javax.validation.Valid;
 import java.util.List;

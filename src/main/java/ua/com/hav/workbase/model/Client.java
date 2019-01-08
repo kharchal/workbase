@@ -21,8 +21,13 @@ public class Client {
     @ManyToOne
     private Person person;
 
-    @Min(0)
-    @Max(100000)
+    private int xdate;
+
+    @Transient
+    private String dateString;
+
+//    @Min(0)
+//    @Max(100000)
 //    @Pattern(regexp = "[0-9]+")
     private Integer balance = 0;
 
@@ -34,8 +39,9 @@ public class Client {
         this.person = person;
     }
 
-    @Override
-    public String toString() {
-        return (person == null) ? "" : person.getName() + " " + person.getSurname();
-    }
+
+//    @Override
+//    public String toString() {
+//        return (person == null) ? "" : person.getName() + " " + person.getSurname();
+//    }
 }
